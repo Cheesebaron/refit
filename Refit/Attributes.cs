@@ -264,4 +264,15 @@ namespace Refit
 
         public CollectionFormat CollectionFormat { get; set; } = CollectionFormat.RefitParameterFormatter;
     }
+
+    [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Method)]
+    public class UrlFormatAttribute : Attribute
+    {
+        public bool DoNotUrlEncode { get; protected set; }
+
+        public UrlFormatAttribute(bool doNotUrlEncode)
+        {
+            DoNotUrlEncode = doNotUrlEncode;
+        }
+    }
 }
